@@ -31,7 +31,7 @@ class ThirdLargestElement
 
 class Solution
 {
-    int r;
+    
     int thirdLargest(int a[], int n)
     {
     int f = Integer.MIN_VALUE, s=Integer.MIN_VALUE,t=Integer.MIN_VALUE;
@@ -51,14 +51,13 @@ class Solution
       else if(t<=a[i])
       {
           t = a[i];
-          r = i;
+          
       }
     }
    
-    int third = t;
+    
     if(n == 1 || n == 2)
     return -1;
-    // int r = a.indexOf(third);
     else
     return t;
     }
