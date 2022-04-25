@@ -55,7 +55,7 @@ int multiply(int arr[], int n)
             sumr+= arr[j];
         }
         
-        int res = suml*sumr;
+        res = suml*sumr;
         return res;
     }
     else
@@ -72,7 +72,7 @@ int multiply(int arr[], int n)
             sumr+= arr[j];
         }
         
-        int res = suml*sumr;
+        res = suml*sumr;
           return res;
     }
     
