@@ -1,0 +1,76 @@
+GFG - Stack
+
+Given a mathematical equation using numbers/variables and +, -, *, /. Print the equation in reverse.
+
+//{ Driver Code Starts
+//Initial Template for Java
+
+import java.io.*;
+import java.util.*;
+
+class GFG
+{
+    public static void main(String args[])throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t-- > 0)
+        {
+            String s;
+            s = sc.next();
+            
+            Solution ob = new Solution();
+            
+            System.out.println(ob.reverseEqn(s));    
+        }
+    }
+}
+// } Driver Code Ends
+
+
+//User function Template for Java
+class Solution
+{
+   
+    String reverseEqn(String S)
+    {
+        // your code here
+        Stack<String> num = new Stack<String>();
+        Stack<String> oper = new Stack<String>();
+        String con = "";
+        for(int i = 0; i < S.length(); i++)
+        {
+            
+            if(S.charAt(i)!= '+' && S.charAt(i)!= '-' && S.charAt(i)!= '*' &&S.charAt(i)!= '/' )
+            {
+                
+            con += S.charAt(i);
+            // System.out.println(con);
+            }
+            else
+            {
+            num.push(con);
+            con="";
+            oper.push(String.valueOf(S.charAt(i)));
+            }
+        }
+        
+        // num.push(String.valueOf(S.charAt(S.length()-1)));
+        num.push(con);
+        // System.out.println(num);
+        // System.out.println(oper);
+        String ans = "";
+        int numS =num.size();
+        int operS = oper.size();
+        while(numS-1>0 && operS>0)
+        {
+            ans+=num.pop();
+            ans+=oper.pop();
+            numS--;
+            operS--;
+        }
+         ans+=num.pop();
+       
+       return ans; 
+    }
+}
